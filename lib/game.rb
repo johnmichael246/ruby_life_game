@@ -8,11 +8,13 @@ class Game
 
   def run
     i = 1
-    while i >= @series_length
+    while i <= @series_length
       puts "generation #{i}"
-      puts @grid.state
+      p @grid.display_current_gen
       @grid.generate_next_gen
       i += 1
     end
+    puts 'ending generation: '
+    p @grid.display_current_gen
   end
 end

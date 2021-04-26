@@ -71,15 +71,15 @@ class Cell
       elder: 0
     }
     live_neighbors.each do |n|
-      return if n.dead?
+      next if n.dead?
 
       case @age
       when 1
-        grouped_neighbors_counts.young += 1
+        grouped_neighbors_counts[:young] += 1
       when 2
-        grouped_neighbors_counts.adult += 1
+        grouped_neighbors_counts[:adult] += 1
       when 3
-        grouped_neighbors_counts.elder += 1
+        grouped_neighbors_counts[:elder] += 1
       end
     end
     grouped_neighbors_counts

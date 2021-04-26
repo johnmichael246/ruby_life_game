@@ -1,6 +1,6 @@
 require_relative './cell'
 class Grid
-  attr_reader :state
+  attr_reader :cells
 
   def initialize(state)
     values = state.map(&:size)
@@ -21,13 +21,17 @@ class Grid
     @cells.flatten
   end
 
+  def display_current_gen
+    @cells.map { |cell_row| cell_row.map(&:age) }
+  end
+
   def generate_next_gen
     affected_dead = []
     affected_aged = []
     formatted_cells.each do |cell|
       neighbors = cell.living_neighbors_by_age
       if cell.dead?
-        affected_aged.push(cell) if neighbors.adult == 2
+        affected_aged.push(cell) if neighbors[:adult] == 2
       elsif cell.died_off?
         affected_dead.push(cell)
       else
@@ -39,8 +43,6 @@ class Grid
   end
 
   def cell_at(x, y)
-    if @cells[x]
-        @cells[x][y] 
-    end
+    @cells[x][y] if @cells[x]
   end
 end
