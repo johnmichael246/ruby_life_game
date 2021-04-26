@@ -48,14 +48,14 @@ class Cell
 
   def neighbors
     neighbors = []
-    neighbors.push(@world.cell_at(x - 1, y - 1))
-    neighbors.push(@world.cell_at(x - 1, y))
-    neighbors.push(@world.cell_at(x - 1, y + 1))
-    neighbors.push(@world.cell_at(x, y - 1))
-    neighbors.push(@world.cell_at(x, y + 1))
-    neighbors.push(@world.cell_at(x + 1, y - 1))
-    neighbors.push(@world.cell_at(x + 1, y))
-    neighbors.push(@world.cell_at(x + 1, y + 1))
+    neighbors.push(@grid.cell_at(x - 1, y - 1))
+    neighbors.push(@grid.cell_at(x - 1, y))
+    neighbors.push(@grid.cell_at(x - 1, y + 1))
+    neighbors.push(@grid.cell_at(x, y - 1))
+    neighbors.push(@grid.cell_at(x, y + 1))
+    neighbors.push(@grid.cell_at(x + 1, y - 1))
+    neighbors.push(@grid.cell_at(x + 1, y))
+    neighbors.push(@grid.cell_at(x + 1, y + 1))
 
     neighbors.compact
   end
