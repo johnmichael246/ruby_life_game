@@ -12,7 +12,7 @@ class Grid
     height.times do |x|
       @cells.push([])
       width.times do |y|
-        @cells[x].push(Cell.new(self, x, y, state[y][x]))
+        @cells[x].push(Cell.new(self, x, y, state[x][y]))
       end
     end
   end
